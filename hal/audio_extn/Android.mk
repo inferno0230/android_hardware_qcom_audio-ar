@@ -9,6 +9,7 @@ LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_HEADER_LIBRARY)
 
+ifneq ($(TARGET_PROVIDES_PREBUILT_PAL),true)
 #-------------------------------------------
 #            Build HFP LIB
 #-------------------------------------------
@@ -94,6 +95,7 @@ LOCAL_HEADER_LIBRARIES += libsystem_headers
 LOCAL_HEADER_LIBRARIES += libaudio_hal_headers
 LOCAL_HEADER_LIBRARIES += libarpal_headers
 include $(BUILD_SHARED_LIBRARY)
+endif
 
 #-------------------------------------------
 #            Build BATTERY_LISTENER

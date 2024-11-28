@@ -8,6 +8,7 @@ endif
 #Packages that should not be installed in QMAA are enabled here
 ifneq ($(TARGET_AUDIO_QMAA_ENABLED),true)
 
+ifneq ($(TARGET_PROVIDES_PREBUILT_AGM),true)
 #AGM
 AUDIO_AGM := libagmclient
 AUDIO_AGM += vendor.qti.hardware.AGMIPC@1.0-impl
@@ -24,7 +25,9 @@ AUDIO_AGM += libagm_compress_plugin
 AUDIO_AGM += agmcompresscap
 AUDIO_AGM += agmvoiceui
 AUDIO_AGM += agmhostless
+endif
 
+ifneq ($(TARGET_PROVIDES_PREBUILT_PAL),true)
 #PAL Service
 AUDIO_PAL += libpalclient
 AUDIO_PAL += vendor.qti.hardware.pal@1.0-impl
@@ -38,6 +41,7 @@ AUDIO_PAL += catf
 AUDIO_PAL += PalTest
 AUDIO_PAL += libaudiochargerlistener
 AUDIO_PAL += libhfp_pal
+endif
 
 # C2 Audio
 AUDIO_C2 := libqc2audio_base
